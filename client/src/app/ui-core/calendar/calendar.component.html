@@ -1,0 +1,52 @@
+<div class="container mt-5">
+    <div class="wrapper justify-content-center">
+        <ul class="pagination justify-content-center">                
+            <li *ngFor="let m of listMonth"
+                class="page-item"
+                [ngClass]="{'active': m.selected}"
+            ><button  (click)="selectMonth(m.index)" class="page-link">{{m.name}}</button></li>
+        </ul>
+        <ul class="pagination justify-content-center years">                
+            <li *ngFor="let y of listYear"
+                class="page-item"
+                [ngClass]="{'active': y.selected}"
+            ><button (click)="selectYear(y.name)" class="page-link">{{y.name}}</button></li>
+        </ul>
+    </div>
+    <div class="wrapper header">
+        <div class="box-week" *ngFor="let day of listWeekDays">{{day}}</div>
+    </div>
+    <div class="wrapper">        
+        <div class="box-day" *ngFor="let day of listNoDays"></div>        
+        <div class="box-day" *ngFor="let day of listDays">            
+            <div class="first-row-on-day">
+                <div class="day-number">{{day.day}}</div>
+                <div *ngIf="day.totalPrice>0"class="total-mount-container">${{day.totalPrice}}</div>
+            </div>
+            <div class="reserve-dpto" *ngFor="let render of day.render" [ngClass]="{'visible-off': render==null}">
+                <div *ngIf="render != null && (render.type==2 || render.type==3)" class="end-reserve"
+                [ngStyle]="{'background-color': render.dptosBgColor,
+                'color': render.dptoColor}"></div>
+                <div *ngIf="render != null && render.type!=2" [ngClass]="{
+                    'start-reserve': render.type==0,
+                    'whole-reserve': render.type==1,
+                    'end-reserve': render.type==2,
+                    'end-start-reserve': render.type==3}"
+                    [ngStyle]="{'background-color': render.dptosBgColor,
+                    'color': render.dptoColor}"
+                    (click)="selectReservation(render.id)">
+                    <i class="fab" [ngStyle]="{'color': render.reserveFromColor}"
+                    [ngClass]="{
+                        'fa-airbnb': render.reserveFromDesc=='Airbnb',
+                        'fa-bootstrap': render.reserveFromDesc=='Booking',
+                        'fa-dochub': render.reserveFromDesc=='Despegar',
+                        'fa-instagram': render.reserveFromDesc=='Instagram',
+                        'fa-weixin': render.reserveFromDesc=='Boca en boca',
+                        'fa-viber': render.reserveFromDesc=='Otro',
+                        'fa-facebook': render.reserveFromDesc=='Facebook'}"
+                    ></i>    {{render.name}}
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>

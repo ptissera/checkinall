@@ -1,0 +1,76 @@
+<app-side-panel [title]="'Reserva'" [disabledPrimaryButton]="!thisForm.valid" (clickPrimaryButton)="onSubmit()"
+  (clickClose)="onClose()">
+  <div class="container p-4">
+                  <form [formGroup]="thisForm">
+              <div class="form-group">
+                <label for="dptoId" class="col-form-label-sm">Dpto</label>
+                <select class="form-control form-control-sm" formControlName="dptoId">
+                  <option *ngFor="let item of dptos" [ngValue]="item.id">{{item.name}}</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="startDate" class="col-form-label-sm">Comienza</label>
+                  <input type="date" formControlName="startDate" placeholder="Comienza"
+                    class="form-control form-control-sm" autofocus required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="totalDays" class="col-form-label-sm">Total de noches</label>
+                  <input type="number" formControlName="totalDays" placeholder="Total de noches"
+                    class="form-control form-control-sm" autofocus required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="pricePerDay" class="col-form-label-sm">Precio por noche</label>
+                  <input type="number" formControlName="pricePerDay" placeholder="Precio por noche"
+                    class="form-control form-control-sm" autofocus required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="totalPerson" class="col-form-label-sm">Total de huespedes</label>
+                  <input type="number" formControlName="totalPerson" placeholder="Total de huespedes"
+                    class="form-control form-control-sm" autofocus required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="totalPerson" class="col-form-label-sm">Reservado desde</label>
+                  <select class="form-control form-control-sm" formControlName="reservationMethod">
+                      <option *ngFor="let item of reservationFrom" [ngValue]="item.id">{{item.name}}</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="totalPerson" class="col-form-label-sm">Metodo de pago</label>
+                  <select class="form-control form-control-sm" formControlName="paymentMethod">
+                      <option *ngFor="let item of paymentMethods" [ngValue]="item.id">{{item.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group" class="col-form-label-sm">
+                <label for="firstName">Nombre del huesped</label>
+                <input type="text" formControlName="firstName" placeholder="Nombre del huesped"
+                  class="form-control form-control-sm" required>
+              </div>
+              <div class="form-group" class="col-form-label-sm">
+                <label for="lastName">Apellido del huesped</label>
+                <input type="text" formControlName="lastName" placeholder="Apellido del huesped"
+                  class="form-control form-control-sm" required>
+              </div>
+              <div class="form-group" class="col-form-label-sm">
+                <label for="phone">Telefono</label>
+                <input type="text" formControlName="phone" placeholder="Telefono" class="form-control form-control-sm"
+                  required>
+              </div>
+              <div class="form-group" class="col-form-label-sm">
+                <label for="email">E-mail</label>
+                <input type="email" formControlName="email" placeholder="E-mail" class="form-control form-control-sm"
+                  required>
+              </div>
+              <div class="form-group"  class="col-form-label-sm">
+                  <label for="observations">Observaciones</label>
+                  <textarea class="form-control form-control-sm" formControlName="observations" placeholder="Observaciones" rows="3"></textarea>
+                </div>
+                
+            </form>
+  </div>
+</app-side-panel>

@@ -1,0 +1,28 @@
+<div class="wrapper">
+    <!-- Overlay  -->
+    <div class="overlay" (click)="close()">     
+    </div>
+    <!-- Sidebar  -->
+    <nav class="sidebar" [@slideInOut]="collapse">
+      <div class="sidebar-header  p-4">
+        <span class="close-icon" (click)="close()"><i class="fas fa-plus-circle"></i></span>
+        <h4>{{title}}</h4>
+      </div>
+      <div class="content-side-panel">
+        <ng-content></ng-content>
+      </div>
+      <div class="footer-side-panel">
+        <div class="footer-buttons-side-out">
+          <button type="button" class="btn btn-outline-primary"
+          [disabled]="disabledPrimaryButton"
+          (click)="onClickPrimaryButton()">
+            {{labelButtonPrimary}}
+          </button>
+          <button type="button" class="btn btn-outline-secondary"
+          *ngIf="showButtonSecondary" (click)="close()">
+            {{labelButtonSecondary}}
+          </button>
+        </div>
+      </div>
+    </nav>
+</div>

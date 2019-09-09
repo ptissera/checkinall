@@ -1,0 +1,32 @@
+<app-side-panel [title]="'Usuario'" 
+   [disabledPrimaryButton]="!thisForm.valid"
+   (clickPrimaryButton)="onSubmit()"
+   (clickClose)="onClose()">
+  <div class="container p-4">
+            <form [formGroup]="thisForm">
+              <div class="form-group">
+                  <label for="displayName" class="col-form-label-sm">Nombre para Mostrar</label>
+                <input type="text" formControlName="displayName" placeholder="Nombre para Mostrar" class="form-control form-control-sm" autofocus required>
+              </div>
+              <div class="form-group">
+                  <label for="password" class="col-form-label-sm">Contraseña</label>
+                  <input type="password" formControlName="password" placeholder="Contraseña" class="form-control form-control-sm" autofocus required>
+                </div>
+              <div class="form-group">
+                <label for="email" class="col-form-label-sm">E-mail</label>
+                <input type="email" formControlName="email" placeholder="E-mail" class="form-control form-control-sm" required>
+              </div>
+              <div class="form-group form-check">
+                  <input type="checkbox" formControlName="isAdmin" class="form-check-input" id="isAdmin">
+                  <label class="form-check-label col-form-label-sm" for="isAdmin">Es administrador</label>
+              </div>        
+              <div class="form-group">
+                  <label for="image" class="col-form-label-sm">Url de la imagen</label>
+                <input type="url" formControlName="image" placeholder="Url de la imagen" class="form-control form-control-sm">
+              </div>
+              <div class="form-group card-body center">
+                  <img [src]="thisForm.value.image || '/assets/img/no-image-icon-4.png'" class="card-img-top">
+                </div>
+            </form>
+  </div>
+</app-side-panel>

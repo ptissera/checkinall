@@ -1,0 +1,5 @@
+.vscode/
+
+client/node_modules/
+server-nest-mysql/node_modules/
+server-nest-mysql/dist/

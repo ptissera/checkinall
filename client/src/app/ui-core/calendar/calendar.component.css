@@ -1,0 +1,127 @@
+
+.years {
+  padding-left: 15px;
+}
+
+.active {
+  background-color: red !important;
+}
+
+.start-reserve,
+.whole-reserve,
+.end-reserve,
+.end-start-reserve {
+  background-color: #222;
+  color: aliceblue;
+  font-size: 13px;
+  padding: 2px 0;
+  text-align: center;
+  height: 23px;
+}
+
+.end-reserve {
+  width: 16px;  
+  margin: 3px 0;
+  border-radius: 0 15px 15px 0;
+}
+
+.end-start-reserve {
+  border-radius: 15px 0 0 15px;
+  margin: 3px 0 3px 5px;
+  width: 100%;
+}
+
+.start-reserve {
+  margin: 3px 0 1px 8px;
+  border-radius: 15px 0 0 15px;
+  width: 100%;
+}
+
+.whole-reserve {
+  width: 100%;
+  margin: 3px 0;
+}
+
+.whole-reserve:hover,
+.start-reserve:hover,
+.end-start-reserve:hover,
+.end-reserve:hover {
+  opacity: 0.7;
+}
+
+.reserve-dpto {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 3px 0;
+  height: 23px;
+}
+
+.total-mount-container {
+  float: right;
+  background-color: #333333;
+  height: 20px;
+  padding-left: 5px;
+  color: lightgreen;
+  text-align: right;
+  border-radius: 0 0 0 10px;
+}
+
+.day-number {
+  float: left;
+  background-color: #333333;
+  width: 30px;
+  height: 20px;
+  color: yellow;
+  text-align: center;
+  border-radius: 0 0 10px;
+}
+
+.first-row-on-day {
+  display: inline-block;
+  width: 100%;
+}
+
+.box-day {
+  display: flex;
+  flex-direction: column;
+  min-height: 70px;
+  padding-bottom: 5px;
+  background-color: #121212;
+}
+
+.box-week {
+  min-height: 40px;
+  padding-top: 5px;
+  font-size: 19px;
+  text-align: center;  
+}
+
+.box-no-day,
+.box-day,
+.box-week {
+  width: 14.28%;
+  border: 1px solid #333333;
+}
+
+.box-week::first-letter {
+  color: White;
+}
+
+.box-week:nth-child(1){
+  color: orange;
+}
+
+.wrapper {
+  flex-wrap: wrap;
+  display: inline-flex;
+  width: 90%;
+}
+
+.visible-off {
+  visibility: hidden
+}
+
+.fab {
+  margin-right: 15px;
+}
